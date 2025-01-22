@@ -30,9 +30,23 @@
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-4 flex items-center md:ml-6">
-                            
-
-                            
+                            @auth
+                                <form method="POST" action="/logout">
+                                    @csrf
+                                    <button type="submit"
+                                        class="bg-gradient-to-r from-rose-400 to-pink-500 text-white rounded-lg px-4 py-2 hover:from-rose-500 hover:to-pink-600 transition-all duration-200 shadow hover:shadow-pink-200 transform hover:scale-105 font-medium flex items-center gap-1.5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+                                            <path d="M3 3a1 1 0 00-1 1v12a1 1 0 001 1h12a1 1 0 001-1V4a1 1 0 00-1-1h-4.5a.5.5 0 00-.5.5v1a.5.5 0 00.5.5H14v10H4V4h2.5a.5.5 0 00.5-.5v-1a.5.5 0 00-.5-.5H3z"/>
+                                            <path d="M9.5 7.5a.5.5 0 01.5-.5h4a.5.5 0 010 1h-4a.5.5 0 01-.5-.5z"/>
+                                        </svg>
+                                        Logout
+                                    </button>
+                                </form>
+                            @endauth
+                            @guest
+                                <x-nav-link href="/login" :active="request()->is('login')">Log In</x-nav-link>
+                                <x-nav-link href="/register" :active="request()->is('register')">Register</x-nav-link>
+                            @endguest
                         </div>
                     </div>
                     <div class="-mr-2 flex md:hidden">
@@ -63,7 +77,8 @@
                         <a href="/" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
                             aria-current="page">DashBoard</a>
                         <a href="/jobs"
-                            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Job Listing</a>
+                            class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Job
+                            Listing</a>
                         <a href="/contact"
                             class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Contact</a>
                     </div>
