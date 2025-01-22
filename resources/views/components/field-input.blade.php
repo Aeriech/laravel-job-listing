@@ -1,0 +1,2 @@
+<input class="border-2 border-gray-200 rounded-xl p-4 w-full focus:outline-none focus:ring-4 focus:ring-blue-400 focus:border-transparent transition-all duration-300 hover:border-blue-300 bg-gray-50"
+    {{ $attributes }} />
